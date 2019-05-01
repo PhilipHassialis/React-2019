@@ -6,13 +6,7 @@ class App extends Component {
     render() {
         const name = "Philip";
 
-        return (
-            <div>
-                {name}
-                <div style={styles.styles}>Style</div>
-                <button>Button 1</button>
-            </div>
-        );
+        return <div>{React.createElement("button", { className: "App" }, "React")}</div>;
     }
 }
 
