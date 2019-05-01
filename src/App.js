@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./bootstrap.min.css";
 
 class App extends Component {
     state = {
