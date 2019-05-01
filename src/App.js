@@ -1,24 +1,12 @@
 import React, { Component } from "react";
-import "./bootstrap.min.css";
 
 class App extends Component {
-    state = {
-        counter: 0
-    };
-
-    increment = () => {
-        this.setState({ counter: 5 });
-    };
-
     render() {
-        return (
-            <div>
-                <button onClick={this.increment}>Button</button>
-                <div>Div1 {this.state.counter}</div>
-                <div>Div2</div>
-                <div>Div3</div>
-            </div>
-        );
+        const var1 = {
+            key1: "Some data"
+        };
+
+        return <div>{React.createElement("div", { className: "app" }, var1.key1)}</div>;
     }
 }
 
