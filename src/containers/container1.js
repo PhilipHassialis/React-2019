@@ -16,8 +16,12 @@ class Container1 extends Component {
 
     changeState2 = () => {
         this.setState((prevState, props) => {
-            this.setState({ stateprop2: prevState.stateprop2 + 5 });
+            return { stateprop2: prevState.stateprop2 + 5 };
         });
+    };
+
+    changeState3 = () => {
+        this.setState({});
     };
 
     render() {
