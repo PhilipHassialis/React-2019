@@ -9,9 +9,17 @@ class Container1 extends Component {
         };
     }
 
+    changeState = () => {
+        this.setState({ stateprop1: "Our next state" });
+    };
+
     render() {
         return (
             <div>
+                <button onClick={this.changeState}>Change state</button>
+                <button onClick={() => this.setState({ stateprop1: "Our next state" })}>
+                    Change state in onclick
+                </button>
                 <div>{this.props.nickname}</div>
                 <div>{this.state.stateprop1}</div>
             </div>
