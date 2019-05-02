@@ -8,6 +8,7 @@ class App extends Component {
             <div>
                 React
                 <Container1 nickname="fatass" />
+                <br />
                 <Component1 name="Philip" age={43} />
             </div>
         );

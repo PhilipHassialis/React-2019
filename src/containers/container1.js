@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Component1 from "../functional/component1";
 
 class Container1 extends Component {
     constructor(props) {
@@ -44,6 +45,13 @@ class Container1 extends Component {
                     <button onClick={() => this.changeState3()}>
                         Change both states
                     </button>
+                </div>
+                <div>
+                    Passing state inside container1 to component1
+                    <br />
+                    <Component1 prop1={this.state.stateprop1} />
+                    <br />
+                    End of component1 inside container1
                 </div>
             </div>
         );
