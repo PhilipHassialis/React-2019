@@ -10,6 +10,9 @@ class App extends Component {
                 <Container1 nickname="fatass" />
                 <br />
                 <Component1 name="Philip" age={43} />
+                <br />
+                Ternary expression:
+                {true ? <div>condition1</div> : <div>condition2</div>}
             </div>
         );
     }
