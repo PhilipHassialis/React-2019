@@ -57,12 +57,26 @@ class Container1 extends Component {
                     >
                         Dispatch Failure
                     </button>
+                    <div>
+                        <button
+                            onClick={() => {
+                                this.props.actionCreatorSuccess();
+                            }}
+                        >
+                            Dispatch ActionCreator Success
+                        </button>
+                        <button
+                            onClick={() => {
+                                this.props.actionCreatorFailure();
+                            }}
+                        >
+                            Dispatch ActionCreator Failure
+                        </button>
+                    </div>
                 </div>
 
                 <button onClick={this.changeState}>Change state</button>
-                <button onClick={() => this.setState({ stateprop1: "Our next state" })}>
-                    Change state in onclick
-                </button>
+                <button onClick={() => this.setState({ stateprop1: "Our next state" })}>Change state in onclick</button>
                 <div>{this.props.nickname}</div>
                 <div>stateprop1: {this.state.stateprop1}</div>
                 <div>
@@ -70,9 +84,7 @@ class Container1 extends Component {
                     stateprop2: {this.state.stateprop2}
                 </div>
                 <div>
-                    <button onClick={() => this.changeState3()}>
-                        Change both states
-                    </button>
+                    <button onClick={() => this.changeState3()}>Change both states</button>
                 </div>
                 <div>
                     Passing state inside container1 to component1
@@ -95,7 +107,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         actionSuccess: () => dispatch(ACTIONS.SUCCESS),
-        actionFailure: () => dispatch(ACTIONS.FAILURE)
+        actionFailure: () => dispatch(ACTIONS.FAILURE),
+        actionCreatorSuccess: () => dispatch(ACTIONS.success()),
+        actionCreatorFailure: () => dispatch(ACTIONS.failure())
     };
 };
 
