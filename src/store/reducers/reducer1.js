@@ -1,7 +1,8 @@
 import * as ACTION_TYPES from "../actions/action_types";
 
 const initialState = {
-    stateprop1: false
+    stateprop1: false,
+    userText: ""
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -16,7 +17,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 stateprop1: false
             };
-
+        case ACTION_TYPES.USER_INPUT:
+            return {
+                ...state,
+                userText: action.payload
+            };
         default:
             return state;
     }

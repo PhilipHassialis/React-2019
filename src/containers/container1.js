@@ -32,6 +32,8 @@ class Container1 extends Component {
     };
 
     render() {
+        const user_text = "text 1";
+
         return (
             <div>
                 <div>
@@ -73,6 +75,16 @@ class Container1 extends Component {
                             Dispatch ActionCreator Failure
                         </button>
                     </div>
+                    <div>
+                        <button
+                            onClick={() => {
+                                this.props.actionCreatorUserInput(user_text);
+                            }}
+                        >
+                            Dispatch ActionCreator userInput
+                        </button>
+                        <p>User text from userInput: {this.props.userText} </p>
+                    </div>
                 </div>
 
                 <button onClick={this.changeState}>Change state</button>
@@ -100,7 +112,8 @@ class Container1 extends Component {
 
 const mapStateToProps = state => {
     return {
-        stateprop1: state.stateprop1
+        stateprop1: state.stateprop1,
+        userText: state.userText
     };
 };
 
@@ -109,7 +122,8 @@ const mapDispatchToProps = dispatch => {
         actionSuccess: () => dispatch(ACTIONS.SUCCESS),
         actionFailure: () => dispatch(ACTIONS.FAILURE),
         actionCreatorSuccess: () => dispatch(ACTIONS.success()),
-        actionCreatorFailure: () => dispatch(ACTIONS.failure())
+        actionCreatorFailure: () => dispatch(ACTIONS.failure()),
+        actionCreatorUserInput: text => dispatch(ACTIONS.user_input(text))
     };
 };
 
