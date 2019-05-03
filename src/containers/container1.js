@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import Component1 from "../functional/component1";
+import * as ACTION_TYPES from "../store/actions/action_types";
+import * as ACTIONS from "../store/actions/actions";
+
+import { connect } from "react-redux";
 
 class Container1 extends Component {
     constructor(props) {
@@ -31,6 +35,13 @@ class Container1 extends Component {
     render() {
         return (
             <div>
+                <div>
+                    React redux stuff
+                    <button onClick={() => {}}>Get state</button>
+                    <button onClick={() => {}}>Dispatch Success</button>
+                    <button onClick={() => {}}>Dispatch Failure</button>
+                </div>
+
                 <button onClick={this.changeState}>Change state</button>
                 <button onClick={() => this.setState({ stateprop1: "Our next state" })}>
                     Change state in onclick
@@ -58,4 +69,11 @@ class Container1 extends Component {
     }
 }
 
-export default Container1;
+const mapStateToProps = state => {};
+
+const mapDispatchToProps = dispatch => {};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Container1);
