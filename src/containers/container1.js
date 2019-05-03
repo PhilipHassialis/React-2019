@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Component1 from "../functional/component1";
-import * as ACTION_TYPES from "../store/actions/action_types";
 import * as ACTIONS from "../store/actions/actions";
 
 import { connect } from "react-redux";
@@ -37,9 +36,27 @@ class Container1 extends Component {
             <div>
                 <div>
                     React redux stuff
-                    <button onClick={() => {}}>Get state</button>
-                    <button onClick={() => {}}>Dispatch Success</button>
-                    <button onClick={() => {}}>Dispatch Failure</button>
+                    <button
+                        onClick={() => {
+                            console.log(this.props.stateprop1);
+                        }}
+                    >
+                        Get state
+                    </button>
+                    <button
+                        onClick={() => {
+                            this.props.actionSuccess();
+                        }}
+                    >
+                        Dispatch Success
+                    </button>
+                    <button
+                        onClick={() => {
+                            this.props.actionFailure();
+                        }}
+                    >
+                        Dispatch Failure
+                    </button>
                 </div>
 
                 <button onClick={this.changeState}>Change state</button>
@@ -69,9 +86,18 @@ class Container1 extends Component {
     }
 }
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => {
+    return {
+        stateprop1: state.stateprop1
+    };
+};
 
-const mapDispatchToProps = dispatch => {};
+const mapDispatchToProps = dispatch => {
+    return {
+        actionSuccess: () => dispatch(ACTIONS.SUCCESS),
+        actionFailure: () => dispatch(ACTIONS.FAILURE)
+    };
+};
 
 export default connect(
     mapStateToProps,
