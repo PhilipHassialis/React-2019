@@ -8,6 +8,8 @@ import Container1 from "./containers/container1";
 
 import { Router, Route } from "react-router";
 
+import { Header } from "./containers/header";
+
 class Routes extends Component {
     state = {};
 
@@ -15,6 +17,7 @@ class Routes extends Component {
         return (
             <div>
                 <Router>
+                    <Header />
                     <Route path="/container1" component={Container1} />
                     <Route path="/component1" component={Component1} />
                     <Route path="/component2" component={Component2} />
