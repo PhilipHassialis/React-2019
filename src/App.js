@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import Component1 from "./functional/component1";
-import Container1 from "./containers/container1";
-
+import Routes from "./routes";
 class App extends Component {
     // Alternative form approach
     // constructor(props) {
@@ -52,28 +50,7 @@ class App extends Component {
         return (
             <div>
                 React
-                <Container1 nickname="fatass" />
-                <br />
-                <Component1 name="Philip" age={43} />
-                <br />
-                Ternary expression:
-                {true ? <div>condition1</div> : <div>condition2</div>}
-                <br />
-                <hr />
-                <div>
-                    My list
-                    {this.Arr1.map(item => (
-                        <this.RenderListItem key={item.id} item={item} />
-                    ))}
-                </div>
-                <div>
-                    My form
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Name</label>
-                        <input id="inputName" onChange={this.handleChange} type="text" />
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
+                <Routes />
             </div>
         );
     }

@@ -8,20 +8,23 @@ import Container1 from "./containers/container1";
 
 import { Router, Route } from "react-router";
 
-import { Header } from "./containers/header";
+import Header from "./containers/header";
 
+import history from "./utils/history";
 class Routes extends Component {
     state = {};
 
     render() {
         return (
             <div>
-                <Router>
-                    <Header />
-                    <Route path="/container1" component={Container1} />
-                    <Route path="/component1" component={Component1} />
-                    <Route path="/component2" component={Component2} />
-                    <Route path="/component3" component={Component3} />
+                <Router history={history}>
+                    <div>
+                        <Header />
+                        <Route path="/" component={Container1} />
+                        <Route path="/component1" component={Component1} />
+                        <Route path="/component2" component={Component2} />
+                        <Route path="/component3" component={Component3} />
+                    </div>
                 </Router>
             </div>
         );
