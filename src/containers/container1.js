@@ -83,7 +83,7 @@ class Container1 extends Component {
                         >
                             Dispatch ActionCreator userInput
                         </button>
-                        <p>User text from userInput: {this.props.userText} </p>
+                        {this.props.user_input ? <p>User text from userInput: {this.props.user_input} </p> : null}
                     </div>
                 </div>
 
@@ -112,8 +112,8 @@ class Container1 extends Component {
 
 const mapStateToProps = state => {
     return {
-        stateprop1: state.stateprop1,
-        userText: state.userText
+        stateprop1: state.reducer1.stateprop1,
+        user_input: state.user_reducer.userText
     };
 };
 
