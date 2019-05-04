@@ -3,10 +3,8 @@ import React from "react";
 const Component1 = props => {
     return (
         <div>
+            Component {props.match.params.id}
             <hr />
-            {props.name} {props.age}
-            <div>Prop1: {props.prop1}</div>
-            {console.log(props)}
         </div>
     );
 };
