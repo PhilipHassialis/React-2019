@@ -6,7 +6,7 @@ import Component3 from "./functional/component3";
 
 import Container1 from "./containers/container1";
 
-import { Router, Route } from "react-router";
+import { Router, Route, Switch } from "react-router";
 
 import Header from "./containers/header";
 
@@ -20,10 +20,12 @@ class Routes extends Component {
                 <Router history={history}>
                     <div>
                         <Header />
-                        <Route path="/" component={Container1} />
-                        <Route path="/component1" component={Component1} />
-                        <Route path="/component2" component={Component2} />
-                        <Route path="/component3" component={Component3} />
+                        <Switch>
+                            <Route path="/" exact component={Container1} />
+                            <Route path="/component1" component={Component1} />
+                            <Route path="/component2" component={Component2} />
+                            <Route path="/component3" component={Component3} />
+                        </Switch>
                     </div>
                 </Router>
             </div>
