@@ -34,10 +34,12 @@ export default class Auth {
         localStorage.removeItem("access_token");
         localStorage.removeItem("id_token");
         localStorage.removeItem("expiresAt");
+        console.log("Logging out");
     };
 
     isAuthenticated = () => {
         let expiresAt = JSON.parse(localStorage.getItem("expiresAt"));
+        console.log("Is authenticated: ", new Date().getTime() < expiresAt);
         return new Date().getTime() < expiresAt;
     };
 }
