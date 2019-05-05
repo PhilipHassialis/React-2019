@@ -1,20 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import history from "./history";
+import * as ACTIONS from "../store/actions/actions";
 
 class AuthCheck extends Component {
+    componentDidMount() {
+        if (this.props.auth.isAuthenticated()) {
+            this.props.login_success();
+            history.replace("/");
+        } else {
+            this.props.login_failure();
+            history.replace("/");
+        }
+    }
+
     state = {};
     render() {
         return <div />;
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {};
-}
+};
 
-function mapDispatchToProps(dispatch) {
-    return {};
-}
+const mapDispatchToProps = dispatch => {
+    return {
+        login_success: () => dispatch(ACTIONS.login_success()),
+        login_failure: () => dispatch(ACTIONS.login_failure())
+    };
+};
 
 export default connect(
     mapStateToProps,

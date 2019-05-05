@@ -13,6 +13,8 @@ import history from "./utils/history";
 import Callback from "./functional/callback";
 import Auth from "./utils/auth";
 
+import AuthCheck from "./utils/authcheck";
+
 const auth = new Auth();
 
 const handleAuthentication = props => {
@@ -32,6 +34,7 @@ class Routes extends Component {
                         <Header />
                         <Switch>
                             <Route path="/" exact render={() => <Container1 auth={auth} />} />
+                            <Route path="/authcheck" exact render={() => <AuthCheck auth={auth} />} />
                             <Route
                                 path="/callback"
                                 render={props => {
