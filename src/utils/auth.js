@@ -35,6 +35,9 @@ export default class Auth {
         localStorage.removeItem("id_token");
         localStorage.removeItem("expiresAt");
         console.log("Logging out");
+        setTimeout(() => {
+            history.replace("/authcheck");
+        }, 200);
     };
 
     isAuthenticated = () => {
