@@ -36,6 +36,9 @@ class Container1 extends Component {
 
         return (
             <div>
+                <div style={{ padding: "20px", border: "1px solid gray" }}>
+                    <button onClick={() => this.props.auth.login()}>Login</button>
+                </div>
                 <div>
                     React redux stuff
                     <button

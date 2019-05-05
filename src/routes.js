@@ -9,6 +9,18 @@ import { Router, Route, Switch } from "react-router";
 import Header from "./containers/header";
 
 import history from "./utils/history";
+
+import Callback from "./functional/callback";
+import Auth from "./utils/auth";
+
+const auth = new Auth();
+
+const handleAuthentication = props => {
+    if (props.location.hash) {
+        auth.handleAuth();
+    }
+};
+
 class Routes extends Component {
     state = {};
 
@@ -19,7 +31,14 @@ class Routes extends Component {
                     <div>
                         <Header />
                         <Switch>
-                            <Route path="/" exact component={Container1} />
+                            <Route path="/" exact render={() => <Container1 auth={auth} />} />
+                            <Route
+                                path="/callback"
+                                render={props => {
+                                    handleAuthentication(props);
+                                    return <Callback />;
+                                }}
+                            />
                             <Route path="/component/:id" render={props => <Component1 {...props} />} />
                         </Switch>
                     </div>
