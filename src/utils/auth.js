@@ -26,7 +26,7 @@ export default class Auth {
                 this.getProfile();
                 setTimeout(() => {
                     history.replace("/authcheck");
-                }, 200);
+                }, 2000);
             } else {
                 console.log(err);
             }

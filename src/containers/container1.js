@@ -43,6 +43,13 @@ class Container1 extends Component {
                     React redux stuff
                     <button
                         onClick={() => {
+                            console.log(this.props.user_profile);
+                        }}
+                    >
+                        Console log userprofile
+                    </button>
+                    <button
+                        onClick={() => {
                             console.log(this.props.stateprop1);
                         }}
                     >
@@ -116,7 +123,8 @@ class Container1 extends Component {
 const mapStateToProps = state => {
     return {
         stateprop1: state.reducer1.stateprop1,
-        user_input: state.user_reducer.userText
+        user_input: state.user_reducer.userText,
+        user_profile: state.auth_reducer.profile
     };
 };
 
